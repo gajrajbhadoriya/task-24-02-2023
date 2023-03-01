@@ -1,17 +1,17 @@
 <?php
 
 require_once __DIR__ . '/vendor/autoload.php';
-// error_reporting(0);
+error_reporting(0);
 $data = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $data = require __DIR__ . '/fetch-data.php';    
+    $data = require __DIR__ . '/fetch-data.php'; 
+    list('fast' => $speed, 'near' => $near, 'small' => $small, 'large' => $large) = $data;   
 }
-
-list('fast' => $speed, 'near' => $near, 'small' => $small, 'large' => $large) = $data;
-// dd($speed, $near, $small , $large);
-
 // dd($data);
-// $data = ['fast' => $speed, 'near' => $near, 'small' => $small, 'large' => $large];
+
+// list('fast' => $speed, 'near' => $near, 'small' => $small, 'large' => $large) = $data;
+// dd($speed, $near, $small , $large);
+// $retrive = ['fast' => $speed, 'near' => $near, 'small' => $small, 'large' => $large];
 // dd($retrive);
 
 ?>
@@ -20,9 +20,13 @@ list('fast' => $speed, 'near' => $near, 'small' => $small, 'large' => $large) = 
 <head>
     <title>Asteroid Neo Stats</title>
     <style>
-       table, th, td {
-        border: 5px solid;
-    }
+        body {
+        background-color: lightblue;
+        }
+        table, th, td {
+            border-collapse: collapse;
+            border:2px solid Tomato;
+        }
     </style>
 </head>
 <body>
@@ -106,9 +110,6 @@ list('fast' => $speed, 'near' => $near, 'small' => $small, 'large' => $large) = 
             </tr>
     </tbody>
     </table>
-
     <br><br>
 </body>
 </html>
-
-
